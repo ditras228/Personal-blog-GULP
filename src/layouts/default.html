@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     {{> head }}
 </head>
+
 <body>
+    <div class="page">
+        {{> header }}
+         {{> sidebar }}
+        <main class="main">
+        <div class="container">
+               {{> body }}
+        </div>
+     
 
-    {{> header }}
-
-    {{> body }}
-
-    {{> footer }}
-
+    
+        </main>
+    </div>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>
