@@ -1,0 +1,77 @@
+.stories {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-template-rows: 195px;
+    
+    padding-bottom: 3rem;
+}
+
+.stories_item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+
+    box-shadow: 0 5px 15px rgba($black, .2);
+    cursor: pointer;
+
+   
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        background-image: linear-gradient(to bottom,
+                rgba($black, .8),
+                rgba($black, 0) 50%,
+                rgba($black, .8));
+    }
+    
+    &:hover{
+        .stories_preview {
+            transform: scale(1.3);
+            transition-duration: 5s;
+        }
+    }
+
+}
+
+.stories_preview {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 1s ease-in-out;
+
+}
+
+.stories_date,
+.stories_tittle {
+    position: absolute;
+    padding: 1.4rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: $white;
+
+    z-index: 3
+}
+
+.stories_date {
+    bottom: 0;
+    right: 0;    
+}
+
+.stories_tittle {
+    top: 0;
+    left: 0;
+}
