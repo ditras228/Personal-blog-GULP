@@ -1,20 +1,33 @@
 @import "vars";
 @import "vendor/reset";
-html{
+
+html {
     font-size: 62.5%;
 }
+
 body {
     background-color: $background;
     font-size: 1.4rem;
     color: $white;
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     line-height: 1.5;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 *,
 *:before,
-*:after{
-box-sizing: border-box;
+*:after {
+    box-sizing: border-box;
 }
+
 /*Blocks*/
 @import "blocks/header";
 @import "blocks/sidebar";
@@ -31,3 +44,4 @@ box-sizing: border-box;
 @import "blocks/post";
 @import "blocks/embed";
 @import "blocks/pagination";
+@import "blocks/related";
