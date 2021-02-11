@@ -7,6 +7,7 @@
     padding: 1.5rem 2rem;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .add-post_textarea{
@@ -18,15 +19,17 @@
     background-color: transparent;
     resize: none;
     border: none;
+        overflow: hidden;
     &::placeholder{
         color: #D2D2D2;
     }
 }
-.add-post-file{
+.add-post_form-actions{
     display: flex;
     justify-content: space-between;
+    flex-shrink: 0;
     right: 0;
-    width: 20%;
+    width: 120px;
 }
 .add-post_file,
 .add-post_send{

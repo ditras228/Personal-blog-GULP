@@ -333,6 +333,8 @@ body {
   color: #fff;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5; }
+  body.no-scroll {
+    overflow: hidden; }
 
 a {
   color: inherit;
@@ -355,14 +357,23 @@ a {
   top: 0;
   right: 0;
   z-index: 100; }
+  @media (max-width: 991px) {
+    .header {
+      width: 100%; } }
 
 .header_left {
   width: 60%; }
+  @media (max-width: 991px) {
+    .header_left {
+      width: 40%; } }
 
 .header_right {
   width: 40%;
   display: flex;
   justify-content: flex-end; }
+  @media (max-width: 991px) {
+    .header_right {
+      width: 60%; } }
 
 .sidebar {
   width: 300px;
@@ -373,6 +384,9 @@ a {
   left: 0;
   z-index: 100;
   box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.1); }
+  @media (max-width: 991px) {
+    .sidebar {
+      display: none; } }
 
 .sidebar_header {
   height: 180px;
@@ -396,12 +410,18 @@ a {
   padding-top: 10rem;
   padding-left: 300px;
   padding-bottom: 8rem; }
+  @media (max-width: 991px) {
+    .main {
+      padding-left: 0; } }
 
 .container {
   max-width: 70rem;
   margin: 0 auto;
   padding-left: 5rem;
   padding-right: 5rem; }
+  @media (max-width: 991px) {
+    .container {
+      padding: 0 1.5rem; } }
 
 .profile_avatar {
   display: block;
@@ -464,12 +484,16 @@ a {
   .btn--blue {
     background-color: #2A5FE7;
     box-shadow: 0 7px 17px -10px rgba(42, 95, 231, 0.3); }
-    .btn--blue:hover {
+    .btn--blue:hover, .btn--blue:focus {
       background-color: #1950de; }
   .btn--rounded {
     border-radius: 0.5em; }
   .btn--sm {
     padding: 0.7em 1.25em; }
+
+@media (max-width: 991px) {
+  .nav {
+    display: none; } }
 
 .nav_list {
   display: flex; }
@@ -519,7 +543,7 @@ a {
   font-size: 1.2rem;
   color: #fff;
   width: 100%;
-  height: 100%; }
+  height: 40px; }
   .search_input::placeholder {
     color: rgba(255, 255, 255, 0.4); }
 
@@ -616,15 +640,17 @@ a {
   color: #fff;
   background-color: transparent;
   resize: none;
-  border: none; }
+  border: none;
+  overflow: hidden; }
   .add-post_textarea::placeholder {
     color: #D2D2D2; }
 
-.add-post-file {
+.add-post_form-actions {
   display: flex;
   justify-content: space-between;
+  flex-shrink: 0;
   right: 0;
-  width: 20%; }
+  width: 120px; }
 
 .add-post_file,
 .add-post_send {
@@ -889,6 +915,10 @@ a {
 .comments_pubdate {
   color: #757575; }
 
+.form--auth {
+  max-width: 28rem;
+  margin: 0 auto; }
+
 .form_group {
   position: relative;
   margin-bottom: 1.5rem; }
@@ -926,13 +956,31 @@ a {
   z-index: 1;
   transition: width .2s linear; }
 
+.form_footer--center {
+  text-align: center; }
+
+.form_footer-list {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1.2; }
+  .form_footer-list li {
+    margin: .5rem;
+    color: #fff; }
+
 .page {
-  overflow: hidden; }
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh; }
 
 .page_title {
   font-size: 2.1rem;
   color: #fff;
   margin-bottom: 3rem; }
+  .page_title--center {
+    text-align: center; }
 
 .work {
   display: flex;
@@ -982,3 +1030,64 @@ a {
   border-radius: .3em;
   margin-right: 1rem;
   margin-bottom: 1rem; }
+
+.cabinet {
+  display: flex;
+  justify-content: space-between; }
+
+.cabinet_form {
+  margin-bottom: 2.5rem; }
+
+.cabinet_avatar {
+  flex-grow: 1;
+  padding-left: 11rem; }
+  .cabinet_avatar img {
+    margin-bottom: 1.5rem; }
+
+.cabinet_file {
+  padding-left: .25rem;
+  display: block;
+  color: #2A5FE7;
+  text-decoration: underline; }
+  .cabinet_file:hover {
+    text-decoration: none; }
+  .cabinet_file input {
+    display: none; }
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101; }
+
+.modal_content {
+  max-width: 500px;
+  width: 100%;
+  padding: 8rem 8rem 2.5rem;
+  position: relative;
+  background-color: #202020;
+  border-radius: 5px; }
+  .modal_content--social {
+    padding-bottom: 8rem; }
+
+.modal_close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: .5;
+  transition: transform .2s linear,opacity .1s linear; }
+  .modal_close:hover {
+    opacity: 1;
+    transform: rotate(-90deg); }
