@@ -6,19 +6,21 @@
 </head>
 
 <body>
-        <div class="page">
-            {{> header }}
-            {{> sidebar }}
-            <main class="main">
-                <div class="container">
-                    {{> body }}
-                </div>
+    <div class="page" id="page">
+        {{> header }}
+        {{> sidebar }}
+        <main class="main">
+            <div class="container">
+                {{> body }}
+            </div>
 
 
 
-            </main>
-        </div>
-<!--    {{> video-modal}}-->
+        </main>
+    </div>
+    {{> contact-modal}}
+    {{> share-modal}}
+    {{> video-modal}}
     <script src="assets/js/app.js"></script>
 </body>
 

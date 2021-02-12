@@ -333,8 +333,9 @@ body {
   color: #fff;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5; }
-  body.no-scroll, body.show_sidebar {
-    overflow: hidden; }
+  @media (max-width: 575px) {
+    body.no-scroll, body.show_sidebar {
+      overflow: hidden; } }
 
 a {
   color: inherit;
@@ -718,7 +719,7 @@ a {
   display: flex;
   padding: 1.5rem 2rem;
   justify-content: space-between;
-  align-items: center; }
+  align-items: flex-end; }
   @media (max-width: 575px) {
     .add-post_form {
       padding: 0.5rem 1rem; } }
@@ -727,7 +728,7 @@ a {
   font-family: inherit;
   width: 70%;
   font-size: 1.5rem;
-  height: 26px;
+  height: 100%;
   color: #fff;
   background-color: transparent;
   resize: none;
@@ -1107,15 +1108,17 @@ a {
   min-height: 100vh; }
   @media (max-width: 991px) {
     .page {
-      position: relative; }
-      .show_sidebar .page:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 99; } }
+      position: relative; } }
+
+@media (max-width: 991px) {
+  .page_mask {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99; } }
 
 .page_title {
   font-size: 2.1rem;
@@ -1229,7 +1232,7 @@ a {
     display: none; }
 
 .modal {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -1241,16 +1244,28 @@ a {
   top: 0;
   left: 0;
   z-index: 101; }
+  .modal.show {
+    display: flex; }
 
 .modal_content {
   max-width: 500px;
   width: 100%;
   padding: 8rem 8rem 2.5rem;
   position: relative;
+  opacity: 0;
   background-color: #202020;
-  border-radius: 5px; }
+  border-radius: 5px;
+  transform: translateY(-50px);
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out; }
   .modal_content--social {
     padding-bottom: 8rem; }
+  .modal_content--video {
+    padding: 0;
+    text-align: center;
+    background-color: transparent; }
+  @media (max-width: 575px) {
+    .modal_content {
+      padding: 5rem 2rem 2rem 2rem; } }
 
 .modal_close {
   position: absolute;
@@ -1261,7 +1276,7 @@ a {
   border: none;
   cursor: pointer;
   opacity: .5;
-  transition: transform .2s linear,opacity .1s linear; }
+  transition: transform .2s linear, opacity .1s linear; }
   .modal_close:hover {
     opacity: 1;
     transform: rotate(-90deg); }
