@@ -1,16 +1,19 @@
-.add-post_form{
+.add-post_form {
     margin-bottom: 3rem;
     background-color: $secondary;
     border-radius: 5px;
-    box-shadow: 0 15px 25px rgba($black, .45);   
+    box-shadow: 0 15px 25px rgba($black, .45);
     display: flex;
     padding: 1.5rem 2rem;
     justify-content: space-between;
     align-items: center;
 
+    @include breakpoint ($phone-bp) {
+        padding: 0.5rem 1rem;
+    }
 }
 
-.add-post_textarea{
+.add-post_textarea {
     font-family: inherit;
     width: 70%;
     font-size: 1.5rem;
@@ -19,36 +22,51 @@
     background-color: transparent;
     resize: none;
     border: none;
-        overflow: hidden;
-    &::placeholder{
+    overflow: hidden;
+
+    &::placeholder {
         color: #D2D2D2;
     }
 }
-.add-post_form-actions{
+
+.add-post_form-actions {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
     right: 0;
-    width: 120px;
+    width: 100px;
+    @include breakpoint ($phone-bp){
+        width: 80px;
+    }
 }
+
 .add-post_file,
-.add-post_send{
+.add-post_send {
     display: inline-block;
     width: 4.4rem;
     height: 4.4rem;
     border-radius: 50%;
-   
+
     cursor: pointer;
-    input{
+
+    input {
         display: none;
     }
+
+    @include breakpoint ($phone-bp) {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-size: 20px;
+    }
 }
-.add-post_file{
+
+.add-post_file {
     background: #EBEBEB url("../images/photo 1.svg") center no-repeat;
     color: #989898;
-    
+
 }
-.add-post_send{
-     background: #3137C9 url("../images/send.svg") center no-repeat;
+
+.add-post_send {
+    background: #3137C9 url("../images/send.svg") center no-repeat;
     border: none;
 }

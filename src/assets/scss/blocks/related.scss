@@ -9,6 +9,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
+    @include breakpoint($phone-bp) {
+        flex-direction: column;
+
+    }
 }
 
 .related_list-item {
@@ -16,6 +20,10 @@
     display: inline-block;
     margin-bottom: 2.5rem;
     max-width: 45%;
+
+    @include breakpoint($phone-bp) {
+        max-width: 100%;
+    }
 }
 
 .related_list-item {

@@ -1,12 +1,28 @@
+.comments_content {
+    padding-top: 5rem;
+
+}
+
 .comments {
-    margin-top: 5rem;
+
+    margin-top: 3rem;
+
+    @include breakpoint($phone-bp) {
+        margin-top: 2.6rem;
+    }
 }
 
 .comments_item {
     margin-bottom: 2rem;
+
     > .comments {
         padding-left: 3rem;
         margin-bottom: 0;
+
+        @include breakpoint($phone-bp) {
+            padding-left: 1.5rem;
+        }
+
     }
 }
 

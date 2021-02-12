@@ -1,27 +1,45 @@
-.cabinet{
+.cabinet {
     display: flex;
     justify-content: space-between;
-}
-.cabinet_form{
-//    width: 34rem;
-    margin-bottom: 2.5rem;
-}
-.cabinet_avatar{
-    flex-grow: 1;
-    padding-left: 11rem;
-    img{
-        margin-bottom: 1.5rem;
+
+    @include breakpoint($phone-bp) {
+        flex-direction: column;
     }
 }
-.cabinet_file{
+
+.cabinet_form {
+    margin-bottom: 2.5rem;
+    @include breakpoint($phone-bp) {
+        order: 2;
+    }
+}
+
+.cabinet_avatar {
+    flex-grow: 1;
+    padding-left: 11rem;
+
+    img {
+        margin-bottom: 1.5rem;
+    }
+
+    @include breakpoint($phone-bp) {
+        padding-left: 0;
+        margin-bottom: 1rem;
+        order: 1;
+    }
+}
+
+.cabinet_file {
     padding-left: .25rem;
     display: block;
     color: $blue;
     text-decoration: underline;
-    &:hover{
+
+    &:hover {
         text-decoration: none;
     }
-    input{
+
+    input {
         display: none;
     }
 }

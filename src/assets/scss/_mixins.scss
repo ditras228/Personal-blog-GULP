@@ -1,6 +1,6 @@
 @mixin breakpoint($bp)
 {
-    @media (max-width: 991px)
+    @media (max-width: $bp)
     {
         @content;
     }

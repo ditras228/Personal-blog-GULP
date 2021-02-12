@@ -523,8 +523,7 @@ a:hover {
 
 @media (max-width: 991px) {
     .main {
-        padding-top: 7rem;
-        padding-left: 0;
+        padding: 7rem 0 5rem 0;
     }
 }
 
@@ -858,6 +857,13 @@ a:hover {
     padding-bottom: 3rem;
 }
 
+@media (max-width: 991px) {
+    .stories {
+        overflow: scroll;
+        grid-template-columns: 14rem 14rem 14rem 14rem;
+    }
+}
+
 .stories_item {
     position: relative;
     overflow: hidden;
@@ -933,6 +939,12 @@ a:hover {
     align-items: center;
 }
 
+@media (max-width: 991px) {
+    .add-post_form {
+        padding: 0.5rem 1rem;
+    }
+}
+
 .add-post_textarea {
     font-family: inherit;
     width: 70%;
@@ -973,7 +985,13 @@ a:hover {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     right: 0;
-    width: 120px;
+    width: 100px;
+}
+
+@media (max-width: 991px) {
+    .add-post_form-actions {
+        width: 80px;
+    }
 }
 
 .add-post_file,
@@ -988,6 +1006,15 @@ a:hover {
 .add-post_file input,
   .add-post_send input {
     display: none;
+}
+
+@media (max-width: 991px) {
+    .add-post_file,
+    .add-post_send {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-size: 20px;
+    }
 }
 
 .add-post_file {
@@ -1009,14 +1036,21 @@ a:hover {
     overflow: hidden;
 }
 
+@media (max-width: 991px) {
+    .post {
+        padding: 1.5rem;
+    }
+}
+
 .post_content {
     margin-bottom: 2rem;
 }
 
 .post_title {
     font-size: 1.8rem;
-    color: #fff;
+    line-height: 1.2;
     font-weight: 500;
+    color: #fff;
     margin-bottom: 1.5rem;
 }
 
@@ -1110,12 +1144,22 @@ a:hover {
     text-decoration: underline;
 }
 
+@media (max-width: 991px) {
+    .post_data {
+        margin-bottom: 1.3rem;
+    }
+}
+
 .post_header {
     margin: 0 0 2.5rem;
 }
 
 .post_header--preview {
     margin: -2.5rem -2.5rem 2.5rem -2.5rem;
+}
+
+.post_header img {
+    width: 100%;
 }
 
 .post_preview {
@@ -1129,6 +1173,13 @@ a:hover {
     display: flex;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+    .post_footer {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
 }
 
 .post-data-item:not(:last-child):after {
@@ -1204,6 +1255,12 @@ a:hover {
     margin-top: 8rem;
 }
 
+@inclide breakpoint($phone-bp) {
+    .pagination {
+        margin-top: 5rem;
+    }
+}
+
 .pagination_item {
     margin: 0 .5rem;
 }
@@ -1246,10 +1303,23 @@ a:hover {
     flex-wrap: wrap;
 }
 
+@media (max-width: 991px) {
+    .related_list {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
 .related_list-item {
     display: inline-block;
     margin-bottom: 2.5rem;
     max-width: 45%;
+}
+
+@media (max-width: 991px) {
+    .related_list-item {
+        max-width: 100%;
+    }
 }
 
 .related_list-item {
@@ -1273,8 +1343,18 @@ a:hover {
     color: #828282;
 }
 
+.comments_content {
+    padding-top: 5rem;
+}
+
 .comments {
-    margin-top: 5rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 991px) {
+    .comments {
+        margin-top: 2.6rem;
+    }
 }
 
 .comments_item {
@@ -1284,6 +1364,12 @@ a:hover {
 .comments_item > .comments {
     padding-left: 3rem;
     margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+    .comments_item > .comments {
+        padding-left: 1.5rem;
+    }
 }
 
 .comments_header {
@@ -1464,6 +1550,13 @@ a:hover {
     margin-bottom: 3rem;
 }
 
+@media (max-width: 991px) {
+    .work {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
 .work_preview {
     width: 31rem;
 }
@@ -1474,6 +1567,13 @@ a:hover {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+}
+
+@media (max-width: 991px) {
+    .work_preview {
+        width: 100%;
+        height: 20rem;
+    }
 }
 
 .work_content {
@@ -1526,8 +1626,22 @@ a:hover {
     justify-content: space-between;
 }
 
+@media (max-width: 991px) {
+    .cabinet {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
 .cabinet_form {
     margin-bottom: 2.5rem;
+}
+
+@media (max-width: 991px) {
+    .cabinet_form {
+        -ms-flex-order: 2;
+        order: 2;
+    }
 }
 
 .cabinet_avatar {
@@ -1538,6 +1652,15 @@ a:hover {
 
 .cabinet_avatar img {
     margin-bottom: 1.5rem;
+}
+
+@media (max-width: 991px) {
+    .cabinet_avatar {
+        padding-left: 0;
+        margin-bottom: 1rem;
+        -ms-flex-order: 1;
+        order: 1;
+    }
 }
 
 .cabinet_file {

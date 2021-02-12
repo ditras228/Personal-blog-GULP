@@ -9,6 +9,9 @@
 
         overflow: hidden;
 
+        @include breakpoint ($phone-bp) {
+            padding: 1.5rem;
+        }
     }
 
     .post_content {
@@ -17,8 +20,9 @@
 
     .post_title {
         font-size: 1.8rem;
-        color: $white;
+        line-height: 1.2;
         font-weight: 500;
+        color: $white;
         margin-bottom: 1.5rem;
 
         a {
@@ -114,6 +118,10 @@
         a:hover {
             text-decoration: underline;
         }
+
+        @include breakpoint ($phone-bp) {
+            margin-bottom: 1.3rem;
+        }
     }
 
     .post_header {
@@ -123,6 +131,10 @@
         &--preview {
             margin: -2.5rem -2.5rem 2.5rem -2.5rem;
 
+        }
+
+        img {
+            width: 100%;
         }
     }
 
@@ -136,6 +148,11 @@
     .post_footer {
         display: flex;
         justify-content: space-between;
+
+        @include breakpoint ($phone-bp) {
+            flex-direction: column;
+
+        }
     }
 
     .post-data-item {
