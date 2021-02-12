@@ -8,9 +8,22 @@
     z-index: $z-index-sidebar;
 
     box-shadow: 5px 0px 15px rgba($black, 0.1);
-   @include breakpoint($tablet-bp)
-    {
-       display: none;
+
+    @include breakpoint($tablet-bp) {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        background-color: #0D0D0D;
+
+        top: 4rem;
+        height: calc(100vh - 4rem);
+        transform: translateX(-100%);
+        transition: transform .2s linear;
+
+        .show_sidebar & {
+            transform: translateX(0);
+        }
     }
 }
 
@@ -18,21 +31,39 @@
     height: 180px;
     background-color: $secondary;
 
+    @include breakpoint($tablet-bp) {
+        height: 10rem;
+    }
+
     img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
 }
 
 .sidebar_content {
     padding: 0 2rem;
-    margin-top: -5rem;
+
+    @include breakpoint($tablet-bp) {
+        flex-grow: 1;
+    }
+
+    flex-grow: 1;
+
+
 }
 
 .sidebar_footer {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
+
+    @include breakpoint($tablet-bp) {
+        padding-bottom: 1.5rem;
+
+    }
 }

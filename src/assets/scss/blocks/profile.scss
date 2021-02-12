@@ -1,32 +1,82 @@
-.profile_avatar{
+.profile {
+    position: relative;
+    margin-top: -5rem;
+
+    @include breakpoint($tablet-bp) {
+        margin-top: -2.5rem;
+    }
+
+    > .social {
+        @include breakpoint($tablet-bp) {
+            display: none;
+        }
+    }
+}
+
+.profile_avatar {
     display: block;
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 10rem;
+    height: 10rem;
     border: 2px solid $white;
     box-shadow: 0 7px 20px rgba($black, .25);
     border-radius: 5rem;
-    margin: 0 auto;
-    
+    margin: 0 auto 2rem;
+
+    @include breakpoint($tablet-bp) {
+        width: 6.5rem;
+        height: 6.5rem;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.profile_info {
+
+    @include breakpoint($tablet-bp) {
+
+
+        padding-top: 1rem;
+        padding-left: 8rem;
+    }
 
 }
-.profile_name{
+
+.profile_name {
     font-size: 1.8rem;
     text-align: center;
     margin-top: 2rem;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+
+
 }
-.profile_prof{
+
+.profile_prof {
     margin-bottom: 2rem;
     font-size: 1.4rem;
     font-weight: 300;
     color: #DEDEDE;
     text-align: center;
+
+    @include breakpoint($tablet-bp) {
+        font-size: 1.2rem;
+        text-align: left;
+    }
 }
-.profile_text{
+
+.profile_text {
     padding: 3rem 0;
     margin: 3rem 0;
     font-size: 1.2rem;
     text-align: center;
     border-top: 2px solid #1C1C1C;
     border-bottom: 2px solid #1C1C1C;
+
+    @include breakpoint($tablet-bp) {
+        display: none;
+    }
 }

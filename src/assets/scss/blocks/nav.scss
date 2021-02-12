@@ -1,64 +1,99 @@
 .nav {
+    &--mobile {
+        display: none;
+    }
 
     @include breakpoint($tablet-bp) {
         display: none;
 
+        &--mobile {
+            display: block;
+            margin: 3rem 0;
+        }
+
+    }
+
+}
+
+.nav_list {
+    display: flex;
+
+    @include breakpoint($tablet-bp) {
+
+        display: block;
     }
 }
-    .nav_list {
-        
-        display: flex;
-        
+
+.nav_item {
+    &:hover {
+        .nav_link {
+            background-color: $blue;
+            text-decoration: none;
+        }
+
+
+
+        > .subnav {
+
+            display: block;
+        }
+
+
+    
+
     }
+}
 
-    .nav_item {
+@include breakpoint($tablet-bp) {
 
-        &:hover {
-            .nav_link {
-                background-color: $blue;
-                text-decoration: none;
-            }
-
-            > .subnav {
-
-                display: block;
-            }
+    &:hover {
+        .nav_link {
+            background-color: transparent;
+            text-decoration: none;
         }
     }
 
-    .nav_link {
-        display: block;
-        padding: 1.2rem;
-        font-size: 1.1rem;
-        color: $white;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: background-color .2s linear;
+
+}
+
+.nav_link {
+    display: block;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .2s linear;
+
+    @include breakpoint($tablet-bp) {
+
+        font-size: 1.6rem;
+
+    }
+
+    &.has-subnav {
+        position: relative;
+        padding-right: 3.45rem;
+
+        &:after {
+
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 5px 0 5px;
+            border-color: $white transparent transparent transparent;
+
+            position: absolute;
+            top: 50%;
+            right: 1.35rem;
+            transform: translateY(-50%);
 
 
-        &.has-subnav {
-            position: relative;
-            padding-right: 3.45rem;
-
-            &:after {
-
-                content: "";
-                display: block;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 6px 5px 0 5px;
-                border-color: $white transparent transparent transparent;
-
-                position: absolute;
-                top: 50%;
-                right: 1.35rem;
-                transform: translateY(-50%);
 
 
 
-
-
-            }
         }
     }
+}
