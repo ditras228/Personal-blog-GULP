@@ -22,7 +22,7 @@
 # Инструкция по установке
     Прописать в GitBash:
          1. cd /*путь, куда нужно установить*
-         2. gitclone https://github.com/ditras228/Personal-blog-GULP.git
+         2. git clone https://github.com/ditras228/Personal-blog-GULP.git
          3. gulp
 
 # Использованные технологии
