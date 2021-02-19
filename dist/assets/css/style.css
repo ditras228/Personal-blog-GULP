@@ -372,8 +372,10 @@ body {
     line-height: 1.5;
 }
 
-body.no-scroll, body.show_sidebar {
-    overflow: hidden;
+@media (max-width: 575px) {
+    body.no-scroll, body.show_sidebar {
+        overflow: hidden;
+    }
 }
 
 a {
@@ -935,8 +937,8 @@ a:hover {
     padding: 1.5rem 2rem;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -ms-flex-align: center;
-    align-items: center;
+    -ms-flex-align: end;
+    align-items: flex-end;
 }
 
 @media (max-width: 575px) {
@@ -949,7 +951,7 @@ a:hover {
     font-family: inherit;
     width: 70%;
     font-size: 1.5rem;
-    height: 26px;
+    height: 100%;
     color: #fff;
     background-color: transparent;
     resize: none;
@@ -1518,8 +1520,10 @@ a:hover {
     .page {
         position: relative;
     }
+}
 
-    .show_sidebar .page:after {
+@media (max-width: 991px) {
+    .page_mask {
         content: "";
         display: block;
         width: 100%;
@@ -1705,8 +1709,7 @@ a:hover {
 }
 
 .modal {
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -ms-flex-pack: center;
     justify-content: center;
     -ms-flex-align: center;
@@ -1723,17 +1726,40 @@ a:hover {
     z-index: 101;
 }
 
+.modal.show {
+    display: -ms-flexbox;
+    display: flex;
+}
+
 .modal_content {
     max-width: 500px;
     width: 100%;
     padding: 8rem 8rem 2.5rem;
     position: relative;
+    opacity: 0;
     background-color: #202020;
     border-radius: 5px;
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    transition: opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
 .modal_content--social {
     padding-bottom: 8rem;
+}
+
+.modal_content--video {
+    padding: 0;
+    text-align: center;
+    background-color: transparent;
+}
+
+@media (max-width: 575px) {
+    .modal_content {
+        padding: 5rem 2rem 2rem 2rem;
+    }
 }
 
 .modal_close {
@@ -1745,9 +1771,9 @@ a:hover {
     border: none;
     cursor: pointer;
     opacity: .5;
-    transition: opacity .1s linear,-webkit-transform .2s linear;
-    transition: transform .2s linear,opacity .1s linear;
-    transition: transform .2s linear,opacity .1s linear,-webkit-transform .2s linear;
+    transition: opacity .1s linear, -webkit-transform .2s linear;
+    transition: transform .2s linear, opacity .1s linear;
+    transition: transform .2s linear, opacity .1s linear, -webkit-transform .2s linear;
 }
 
 .modal_close:hover {
