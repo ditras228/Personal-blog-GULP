@@ -1,7 +1,7 @@
----
-layout: default
-title: BrainsCloud | Home
----
+<?php
+    $title=  "BrainsClub";
+    include "partials/head.php";
+?>
 <h1 class="page_title page_title--center">Регистрация</h1>
 
 
@@ -38,3 +38,6 @@ title: BrainsCloud | Home
 
     </div>
 </form>
+<?php
+    include "partials/footer.php";
+?>

@@ -15,7 +15,7 @@
             <ul class="nav_list">
                 <li class="nav_item">
                    
-                    <a href="index.html" class="nav_link">Главная</a>
+                    <a href="index.php" class="nav_link">Главная</a>
                 </li>
                 <li class="nav_item">
                     <a href="#" class="nav_link has-subnav">Статьи</a>
@@ -29,13 +29,13 @@
                     <a href="#" class="nav_link">Обо мне</a>
                 </li>
                 <li class="nav_item">
-                    <a href="text.html" class="nav_link">Реклама</a>
+                    <a href="text.php" class="nav_link">Реклама</a>
                 </li>
                   <li class="nav_item">
-                    <a href="profile.html" class="nav_link">Профиль</a>
+                    <a href="profile.php" class="nav_link">Профиль</a>
                 </li>
                   <li class="nav_item">
-                    <a href="text.html" class="nav_link">Выйти</a>
+                    <a href="text.php" class="nav_link">Выйти</a>
                 </li>
             </ul>
         </nav>
@@ -51,7 +51,7 @@
         </div><!-- /.profile-->
     </div><!-- /.sidebar_content-->
     <div class="sidebar_footer">
-    <a href="works.html" class="btn btn--red">Мои работы</a>
+    <a href="works.php" class="btn btn--red">Мои работы</a>
     <button type="button" class="btn btn--blue" data-modal="contact-modal">Написать мне</button>
     </div>
 </aside>

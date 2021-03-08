@@ -25,21 +25,21 @@ const distPath = 'dist/';
 
 const path = {
     build: {
-        html:   distPath,
+        php:   distPath,
         js:     distPath + "assets/js/",
         css:    distPath + "assets/css/",
         images: distPath + "assets/images/",
         fonts:  distPath + "assets/fonts/"
     },
     src: {
-        html:   srcPath + "*.html",
+        php:   srcPath + "**/*.php",
         js:     srcPath + "assets/js/*.js",
         css:    srcPath + "assets/scss/*.scss",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
     },
     watch: {
-        html:   srcPath + "**/*.html",
+        php:   srcPath + "**/*.php",
         js:     srcPath + "assets/js/**/*.js",
         css:    srcPath + "assets/scss/**/*.scss",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
@@ -54,15 +54,19 @@ const path = {
 
 function serve() {
     browserSync.init({
+        /*
         server: {
             baseDir: "./" + distPath
         }
+        */
+        proxy: 'personal-blog-gulp'
     });
 }
 
-function html(cb) {
+function php(cb) {
+    /*
     panini.refresh();
-    return src(path.src.html, {base: srcPath})
+    return src(path.src.php, {base: srcPath})
         .pipe(plumber())
         .pipe(panini({
             root:       srcPath,
@@ -71,7 +75,9 @@ function html(cb) {
             helpers:    srcPath + 'helpers/',
             data:       srcPath + 'data/'
         }))
-        .pipe(dest(path.build.html))
+        */
+        return src(path.src.php, {base: srcPath})
+        .pipe(dest(path.build.php))
         .pipe(browserSync.reload({stream: true}));
 
     cb();
@@ -229,20 +235,20 @@ function clean(cb) {
 }
 
 function watchFiles() {
-    gulp.watch([path.watch.html], html);
+    gulp.watch([path.watch.php], php);
     gulp.watch([path.watch.css], cssWatch);
     gulp.watch([path.watch.js], jsWatch);
     gulp.watch([path.watch.images], images);
     gulp.watch([path.watch.fonts], fonts);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+const build = gulp.series(clean, gulp.parallel(php, css, js, images, fonts));
 const watch = gulp.parallel(build, watchFiles, serve);
 
 
 
 /* Exports Tasks */
-exports.html = html;
+exports.php = php;
 exports.css = css;
 exports.js = js;
 exports.images = images;

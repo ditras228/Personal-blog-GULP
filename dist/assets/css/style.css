@@ -1077,6 +1077,7 @@ a:hover {
     color: #D2D2D2;
     padding-bottom: 1rem;
     border-bottom: 2px solid #1C1C1C;
+    text-align: justify;
 }
 
 .post_text h2,

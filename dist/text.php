@@ -1,7 +1,7 @@
----
-layout: default
-title: BrainsCloud | Home
----
+<?php
+    $title=  "BrainsClub";
+    include "partials/head.php";
+?>
 
 
 <article class="post">
@@ -23,3 +23,6 @@ title: BrainsCloud | Home
 
 </article>
 <!--/.post-->
+<?php
+    include "partials/footer.php";
+?>
