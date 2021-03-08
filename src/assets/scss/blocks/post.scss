@@ -179,7 +179,6 @@
             text-decoration: underline;
         }
     }
-
     .post_actions {
         margin-bottom: 1.5rem;
         display: flex;
@@ -189,6 +188,17 @@
 
 
 
+    }
+    .actions_right{
+        display: flex;
+
+        i{
+            margin-right: 0.5rem;
+
+        }
+    }
+    .views{
+        margin-right: 1rem;
     }
 
     .post_actions-icon {

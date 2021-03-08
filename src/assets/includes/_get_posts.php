@@ -17,7 +17,7 @@ while( $art = mysqli_fetch_assoc( $articles ) ) {
             </a>
         </div>
         <div class="post_title">
-            <a href="#"><?php echo $art['title'] ?></a>
+           <a href="post.php?id=<?php echo $art['id']?>"><?php echo $art['title'] ?></a>
         </div>
         <?php
     }
@@ -36,7 +36,7 @@ while( $art = mysqli_fetch_assoc( $articles ) ) {
 
         </div>
         <div class="post_title">
-            <a href="#"><?php echo $art['title'] ?></a>
+           <a href="post.php?id=<?php echo $art['id']?>"><?php echo $art['title'] ?></a>
         </div>
         <?php
       }

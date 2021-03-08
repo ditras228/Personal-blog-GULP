@@ -3,22 +3,30 @@
     include "partials/head.php";
 ?>
 
+<?php
+$id = $_GET['id'];
+
+$articles = mysqli_query( $connection, "SELECT * FROM `articles` WHERE id = $id" );
+
+$art = mysqli_fetch_array($articles);
+mysqli_query( $connection, "UPDATE  `articles` SET `views` =  `views` + 1 WHERE id =". (int)$id);
+
+?>
+
 <article class="post">
     <div class="post_actions">
         <a href="index.php">вернуться назад</a>
+        <div class="actions_right">
+                    <div class="views"><i class="far fa-eye"></i><?php echo $art['views'] ?></div>
         <a href="#">
             поделиться
             <img class="" src="assets/images/share.svg" alt="">
         </a>
 
     </div>
+    </div>
     <div class="post_content">
-<?php
-$id = $_GET['id'];
-$articles = mysqli_query( $connection, "SELECT * FROM `articles` WHERE id = $id" );
 
-$art = mysqli_fetch_array($articles);
-?>
 
 
 
@@ -78,18 +86,38 @@ $art = mysqli_fetch_array($articles);
         <!--/.related -->
         
         <div class="comments_content">
-            <div class="post_subtitle">Обсуждение</div>
-            <form class="form" action="/" method="post">
+            <div id = "post_subtitle" class="post_subtitle">Обсуждение</div>
+            <form class="form" method="POST" action="/post.php?id=<?php echo $id;?> #post_subtitle" >
+                <?php 
+                if(isset($_POST['do_post'])){
+                    $errors = array();
+
+                    if($_POST['comment_text'] == ''){
+                        $errors[] = 'Комментарий пустой!';
+                    }
+                    if(empty($errors)){
+                        // Добавить комментарий
+                           $errors[] = 'Комментарий успешно добавлен!';
+                        mysqli_query($connection, "INSERT INTO `comments` (`text`, `articles_id`) VALUES ('".$_POST['comment_text']."', '".$id."')");
+                    }
+                        else
+                        {
+                        // Вывести ошибку
+                            echo $errors['0'];
+                        }
+                    
+                }
+                ?>
                 <div class="form_group">
-                    <textarea class="form_control form_control--textarea" name="comment_text" id="" placeholder data-autoresize="Текст комментария"></textarea>
+                    <textarea class="form_control form_control--textarea"   name="comment_text" id="" placeholder data-autoresize="Текст комментария"><?php echo $_POST['comment_text']?></textarea>
                     <span class="form_line"></span>
                 </div>
-                <button class="btn btn--blue btn--rounded btn--sm" type="submit">Отправить</button>
+                <button class="btn btn--blue btn--rounded btn--sm" type="submit" name="do_post">Отправить</button>
             </form>
 
 
     <?php
-    $output = "SELECT * FROM `comments` WHERE `articles_id`= 1 ORDER BY  `id`  DESC   ";
+    $output = "SELECT * FROM `comments` WHERE `articles_id`= $id ORDER BY  `id`  DESC   ";
     include "assets/includes/_get_comments.php"
 
     ?>
