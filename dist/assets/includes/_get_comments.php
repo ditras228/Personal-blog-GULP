@@ -1,7 +1,6 @@
 <?php
-$comments = mysqli_query( $connection, $output);
-
-while( $com = mysqli_fetch_assoc( $comments ) ) { 
+$comments = R::find('comments');
+foreach ($comments as $com) {
     ?>
 
             <ul class="comments">
@@ -26,7 +25,7 @@ while( $com = mysqli_fetch_assoc( $comments ) ) {
     
 <?php
 }
-if(mysqli_num_rows($comments)<=0){
+if($comments<=0){
     echo "Нет комментариев";
 }
 ?>

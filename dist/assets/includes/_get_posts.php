@@ -1,7 +1,7 @@
 <?php
-$articles = mysqli_query( $connection, $output);
+foreach ($output as $art) {
+    
 
-while( $art = mysqli_fetch_assoc( $articles ) ) {
     ?>
 
 <div class="post">
@@ -70,7 +70,7 @@ while( $art = mysqli_fetch_assoc( $articles ) ) {
                 
 
                     $art_cat =       false;
-                    if($cat['id'] == $art['tags_id'])
+                    if($cat['id'] == $art['tags'])
                     {
 
                         $art_cat = $cat;

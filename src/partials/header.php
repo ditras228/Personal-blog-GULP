@@ -9,7 +9,17 @@
                 <li class="nav_item">
                     <a href="#" class="nav_link has-subnav">Статьи</a>
                     <ul class="subnav">
-                        <?php                 
+                        <?php          
+
+                        $categories = R::findAll('tags');
+                        foreach ($categories as $cat) {
+                     ?>
+                               <li><a href="search.php?id=<?php echo $cat['id'] ?>" class="subnav_link"><?php echo $cat['title'] ?></a></li>
+                              
+                              <?php
+                        }
+
+                        /*       
                         $categories_q= mysqli_query($connection, "SELECT * FROM `articles_tags`");
                         $categories = array();       
 
@@ -26,7 +36,7 @@
                              <li><a href="search.php?id=<?php echo $cat['id'] ?>" class="subnav_link"><?php echo $cat['title'] ?></a></li>
                               <?php
                         }
-                        
+                        */
                           ?>
                     </ul>
                 </li>

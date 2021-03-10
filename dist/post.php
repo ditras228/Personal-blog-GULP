@@ -6,11 +6,12 @@
 <?php
 $id = $_GET['id'];
 
-$articles = mysqli_query( $connection, "SELECT * FROM `articles` WHERE id = $id" );
-
-$art = mysqli_fetch_array($articles);
-mysqli_query( $connection, "UPDATE  `articles` SET `views` =  `views` + 1 WHERE id =". (int)$id);
-
+$articles = R::find('articles', "WHERE id = $id" );
+R::update('post', "SET `views` =  `views` + 1 WHERE id =". (int)$id);
+//$art = mysqli_fetch_array($articles);
+//mysqli_query( $connection, "UPDATE  `articles` SET `views` =  `views` + 1 WHERE id =". (int)$id);
+foreach ($articles as $art) {
+}
 ?>
 
 <article class="post">

@@ -1,5 +1,13 @@
 <?php 
 
+  require ("./assets/vendor/rb.php");
+     R::setup( 'mysql:host=localhost;dbname=personal-blog-gulp',
+        'root', 'root' ); //for both mysql or mariaDB
+if(!R::testConnection())
+{
+	exit('Нет подключения к БД');
+}
+/*
 $connection = mysqli_connect(
 $config['db']['server'],
 $config['db']['username'],
@@ -15,7 +23,7 @@ if( $connection  == false)
     die();
 }
 
-
+*/
 
 
 ?>

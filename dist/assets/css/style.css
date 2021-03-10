@@ -1217,6 +1217,19 @@ a:hover {
     color: rgba(255, 255, 255, 0.6);
 }
 
+.actions_right {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.actions_right i {
+    margin-right: 0.5rem;
+}
+
+.views {
+    margin-right: 1rem;
+}
+
 .post_actions-icon {
     margin-left: .5rem;
     color: rgba(255, 255, 255, 0.6);
@@ -1290,6 +1303,11 @@ a:hover {
 .pagination_link:active {
     background-color: #2A5FE7;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.pagination_link--deactive {
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .related {

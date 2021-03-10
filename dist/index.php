@@ -43,6 +43,41 @@ include "partials/head.php";
 </div>
 
 <?php
+
+$per_page=2;
+$page=1;
+if(isset($_GET['page'])){
+    $page=(int)$_GET['page'];
+
+
+}
+$total_count =R::count('articles');
+
+
+
+$total_pages = ceil($total_count/$per_page);
+$offset = ($per_page*$page)-$per_page;
+if($page <= 1 || $page > $total_pages){
+    $page=1;
+}
+$output = R::find('articles', "ORDER BY  `id`  DESC LIMIT $offset,$per_page");
+
+include 'assets/includes/_get_posts.php'
+
+
+
+
+
+
+
+
+
+     /*
+
+
+
+
+
 $per_page=2;
 $page=1;
 if(isset($_GET['page'])){
@@ -68,12 +103,33 @@ include "assets/includes/_get_posts.php";
 
 <!--Pagination-->
 <ul class="pagination">
+    <?php 
+    if($page>1)
+    {
+    ?>
     <li class="pagination_item">
-        <a class="pagination_link" href="#">&lt;
+        <a class="pagination_link" href="?<?php echo 'page='.$page-1 ?>">&lt;
         </a>
     </li>
+     <?php 
+}
+else{
+?>
+     <li class="pagination_item ">
+        <div class="pagination_link pagination_link--deactive">&lt;
+        </div>
+    </li>
+<?php
+}
+ ?>
+
+ <!--  
+ <?php 
+ if($total_pages >=3)
+ {
+    ?>
     <li class="pagination_item">
-        <a class="pagination_link" href="#">1</a>
+        <a class="pagination_link" href="?<?php echo 'page='.$page-1?>">1</a>
     </li>
     <li class="pagination_item">
         <a class="pagination_link" href="#">2</a>
@@ -81,10 +137,31 @@ include "assets/includes/_get_posts.php";
     <li class="pagination_item">
         <a class="pagination_link" href="#">3</a>
     </li>
+<?php
+}
+
+?>
+-->
+     <?php 
+    if($page< $total_pages)
+    {
+    ?>
     <li class="pagination_link">
-        <a class="pagination_link" href="#">&gt;
+        <a class="pagination_link" href="?<?php echo 'page='.$page+1 ?>">&gt;
         </a>
     </li>
+     <?php 
+}
+else{
+?>
+     <li class="pagination_item ">
+        <div class="pagination_link pagination_link--deactive">&gt;
+        </div>
+    </li>
+<?php
+}*/
+ ?>
+
 </ul>
 <?php
 include "partials/footer.php";
