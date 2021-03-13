@@ -1035,7 +1035,7 @@ a:hover {
     border-radius: 5px;
     background-color: #202020;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
-    overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 @media (max-width: 575px) {
@@ -1163,6 +1163,14 @@ a:hover {
 
 .post_header img {
     width: 100%;
+}
+
+.post_header a {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.post_header a:hover {
+    opacity: 0.8;
 }
 
 .post_preview {
@@ -1449,6 +1457,14 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
+.form_fixed {
+    position: sticky;
+    display: block;
+    bottom: -5px;
+    padding-bottom: 10px;
+    background-color: #202020;
+}
+
 .form_control {
     display: block;
     width: 100%;
@@ -1525,7 +1541,7 @@ a:hover {
 }
 
 .page {
-    overflow: hidden;
+  /*overflow: hidden;*/
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;

@@ -8,7 +8,14 @@
     position: relative;
     margin-bottom: 1.5rem;
 }
+.form_fixed{
+  position: sticky;
+      display: block; 
+      bottom: -5px;
+      padding-bottom: 10px;
+      background-color: $primary;
 
+}
 .form_control {
     display: block;
     width: 100%;

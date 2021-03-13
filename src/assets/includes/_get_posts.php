@@ -12,8 +12,8 @@ foreach ($output as $art) {
     {
           ?>
         <div class="post_header post_header--preview">
-            <a href="#">
-                <img src="<?php echo $art['picture'] ?>" alt="">
+            <a href="post.php?id=<?php echo $art['id']?>">
+                <img class="header_picture" src="<?php echo $art['picture'] ?>" alt="">
             </a>
         </div>
         <div class="post_title">

@@ -7,13 +7,13 @@
 
         box-shadow: 0 15px 25px rgba($black, .35);
 
-        overflow: hidden;
+        /*overflow: hidden;*/
 
         @include breakpoint ($phone-bp) {
             padding: 1.5rem;
-        }
+        }   
+ 
     }
-
     .post_content {
         margin-bottom: 2rem;
     }
@@ -125,6 +125,7 @@
     }
 
     .post_header {
+
         margin: 0 0 2.5rem;
 
 
@@ -135,6 +136,12 @@
 
         img {
             width: 100%;
+        }
+        a{
+               transition: opacity 0.2s ease-in-out;
+        }
+        a:hover{
+            opacity: 0.8;
         }
     }
 

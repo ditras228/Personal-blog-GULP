@@ -1,5 +1,5 @@
 <?php
-$comments = R::find('comments');
+$comments = R::find('comments', "WHERE `articlesid`= $id ORDER BY  `id`  DESC   ");
 foreach ($comments as $com) {
     ?>
 

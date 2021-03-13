@@ -29,6 +29,7 @@
     include ($_SERVER['DOCUMENT_ROOT'].'../assets/includes/config.php');
     include    "header.php ";
     include    "sidebar.php ";    
+    include    "./assets/includes/_functions.php";    
 
 ?>
         <main class="main">

@@ -65,41 +65,7 @@ $output = R::find('articles', "ORDER BY  `id`  DESC LIMIT $offset,$per_page");
 include 'assets/includes/_get_posts.php'
 
 
-
-
-
-
-
-
-
-     /*
-
-
-
-
-
-$per_page=2;
-$page=1;
-if(isset($_GET['page'])){
-    $page=(int)$_GET['page'];
-
-
-}
-$total_count_q = mysqli_query($connection,  "SELECT COUNT(`id`) AS `total_count` FROM `articles`");
-$total_count = mysqli_fetch_assoc($total_count_q);
-$total_count = $total_count['total_count'];
-
-$total_pages = ceil($total_count/$per_page);
-$offset = ($per_page*$page)-$per_page;
-if($page <= 1 || $page > $total_pages){
-    $page=1;
-}
-$output = "SELECT * FROM `articles` ORDER BY  `id`  DESC LIMIT $offset,$per_page  ";
-include "assets/includes/_get_posts.php";
-
-
 ?>
-
 
 <!--Pagination-->
 <ul class="pagination">
@@ -159,7 +125,7 @@ else{
         </div>
     </li>
 <?php
-}*/
+}
  ?>
 
 </ul>

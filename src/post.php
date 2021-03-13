@@ -1,17 +1,15 @@
 <?php
     $title=  "BrainsClub";
     include "partials/head.php";
+
 ?>
 
 <?php
 $id = $_GET['id'];
 
-$articles = R::find('articles', "WHERE id = $id" );
-R::update('post', "SET `views` =  `views` + 1 WHERE id =". (int)$id);
-//$art = mysqli_fetch_array($articles);
-//mysqli_query( $connection, "UPDATE  `articles` SET `views` =  `views` + 1 WHERE id =". (int)$id);
-foreach ($articles as $art) {
-}
+$art = R::findOne('articles', "WHERE id = $id" );
+$art->views++;
+R::store($art);
 ?>
 
 <article class="post">
@@ -85,45 +83,27 @@ foreach ($articles as $art) {
             </div>
         </div>
         <!--/.related -->
-        
+ 
         <div class="comments_content">
+
             <div id = "post_subtitle" class="post_subtitle">Обсуждение</div>
-            <form class="form" method="POST" action="/post.php?id=<?php echo $id;?> #post_subtitle" >
-                <?php 
-                if(isset($_POST['do_post'])){
-                    $errors = array();
-
-                    if($_POST['comment_text'] == ''){
-                        $errors[] = 'Комментарий пустой!';
-                    }
-                    if(empty($errors)){
-                        // Добавить комментарий
-                           $errors[] = 'Комментарий успешно добавлен!';
-                        mysqli_query($connection, "INSERT INTO `comments` (`text`, `articles_id`) VALUES ('".$_POST['comment_text']."', '".$id."')");
-                    }
-                        else
-                        {
-                        // Вывести ошибку
-                            echo $errors['0'];
-                        }
-                    
-                }
-                ?>
-                <div class="form_group">
-                    <textarea class="form_control form_control--textarea"   name="comment_text" id="" placeholder data-autoresize="Текст комментария"><?php echo $_POST['comment_text']?></textarea>
-                    <span class="form_line"></span>
-                </div>
-                <button class="btn btn--blue btn--rounded btn--sm" type="submit" name="do_post">Отправить</button>
-            </form>
-
-
-    <?php
-    $output = "SELECT * FROM `comments` WHERE `articles_id`= $id ORDER BY  `id`  DESC   ";
+                       <?php
+ //   $output = "SELECT * FROM `comments` WHERE `articles_id`= $id ORDER BY  `id`  DESC   ";
     include "assets/includes/_get_comments.php"
 
     ?>
+    <div class="form_fixed">
+            <form class="form"   action="" onsubmit="return false;" >
+             
+                <div class="form_group">
+                    <textarea class="form_control form_control--textarea"  id="text_comment" placeholder data-autoresize="Текст комментария"></textarea>
+                    <span class="form_line"></span>
+                </div>
+                <button class="btn btn--blue btn--rounded btn--sm" type="submit" id="form_comment"  name="do_post">Отправить</button>
+            </form>
 
 
+</div>
 
         </div>
         <!--/.pos_content-->
