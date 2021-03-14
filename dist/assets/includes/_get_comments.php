@@ -1,30 +1,13 @@
 <?php
-$comments = R::find('comments', "WHERE `articlesid`= $id ORDER BY  `id`  DESC   ");
-foreach ($comments as $com) {
-    ?>
 
-            <ul class="comments">
-                <li class="comments_item">
-                    <div class="comments_header">
-                        <img class="comments_avatar" src="https://placehold.it/30" alt="">
-                        <div class="comments_author">
-                            <div class="comments_name"><?php echo $com['author']?></div>
-                            <time datetime="2020-12-21 19:21" class="comments_pubdate"><?php echo $com['pubdate']?></time>
+  require ("../vendor/rb.php");
+     R::setup( 'mysql:host=localhost;dbname=personal-blog-gulp',
+        'root', 'root' ); //for both mysql or mariaDB
 
-                        </div>
-                    </div>
-                    <div class="comments_text"><?php echo $com['text']?></div>
-                    <button class="comments_reply" type="button">ответить</button>
 
-                    
-                </li>
-               
-            </ul>
-      
+$comments = R::find('comments', "WHERE `articlesid`= 1 ORDER BY  `id`  DESC");
 
-    
-<?php
-}
+    echo json_encode($comments);   
 if($comments<=0){
     echo "Нет комментариев";
 }

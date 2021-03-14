@@ -19,6 +19,7 @@ $article->pubdate=R::isoDate() ;
 R::store($article);
 
 }
+
 function addComment($author, $text, $articlesid){
 $comment = R::dispense('comments');
 $comment->articlesid=$articlesid;

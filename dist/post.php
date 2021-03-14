@@ -89,9 +89,8 @@ R::store($art);
             <div id = "post_subtitle" class="post_subtitle">Обсуждение</div>
                        <?php
  //   $output = "SELECT * FROM `comments` WHERE `articles_id`= $id ORDER BY  `id`  DESC   ";
-    include "assets/includes/_get_comments.php"
-
     ?>
+    <div class="comments_content_main"> </div>
     <div class="form_fixed">
             <form class="form"   action="" onsubmit="return false;" >
              
@@ -113,3 +112,9 @@ R::store($art);
 <?php
     include "partials/footer.php";
 ?>
+
+
+
+<script type="text/javascript">
+    var id = "<?php echo $id; ?>";
+</script>
